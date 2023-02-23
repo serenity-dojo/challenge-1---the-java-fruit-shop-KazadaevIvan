@@ -72,7 +72,7 @@ public class TheCatalog {
         shoppingCart.addItemToCart(FruitType.APPLE, 1);
         shoppingCart.addItemToCart(FruitType.ORANGE, 1);
 
-        assertThat(shoppingCart.getTotal()).isEqualTo(9.00);
+        assertThat(shoppingCart.getTotalIncludingDiscount(10, 5)).isEqualTo(9.00);
     }
 
     @Test()
@@ -86,7 +86,7 @@ public class TheCatalog {
         shoppingCart.addItemToCart(FruitType.APPLE, 4);
         shoppingCart.addItemToCart(FruitType.ORANGE, 3);
 
-        assertThat(shoppingCart.getTotal()).isEqualTo(31.00);
+        assertThat(shoppingCart.getTotalIncludingDiscount(10, 5)).isEqualTo(31.00);
     }
 
     @Test()
@@ -100,7 +100,7 @@ public class TheCatalog {
         shoppingCart.addItemToCart(FruitType.APPLE, 1);
         shoppingCart.addItemToCart(FruitType.ORANGE, 6);
 
-        assertThat(shoppingCart.getTotal()).isEqualTo(31);
+        assertThat(shoppingCart.getTotalIncludingDiscount(10, 5)).isEqualTo(31);
     }
 
     @Test()
@@ -114,7 +114,7 @@ public class TheCatalog {
         shoppingCart.addItemToCart(FruitType.APPLE, 1);
         shoppingCart.addItemToCart(FruitType.ORANGE, 5);
 
-        assertThat(shoppingCart.getTotal()).isEqualTo(26.5);
+        assertThat(shoppingCart.getTotalIncludingDiscount(10, 5)).isEqualTo(26.5);
     }
 
     @Test()
@@ -128,6 +128,6 @@ public class TheCatalog {
         shoppingCart.addItemToCart(FruitType.APPLE, 1);
         shoppingCart.addItemToCart(FruitType.ORANGE, 4);
 
-        assertThat(shoppingCart.getTotal()).isEqualTo(24);
+        assertThat(shoppingCart.getTotalIncludingDiscount(10, 5)).isEqualTo(24);
     }
 }
