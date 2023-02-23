@@ -11,15 +11,11 @@ public class ShoppingCart {
          this.catalog = catalog;
     }
 
-    public void addItemToCart(FruitType fruit) {
-        fruitMap.put(fruit, catalog.getPriceOf(FruitType.valueOf(fruit.name())));
-    }
-
-    public void addItemToCart(FruitType fruit, int kilos) {
-        if (kilos >= 5) {
-            fruitMap.put(fruit, kilos * catalog.getPriceOf(FruitType.valueOf(fruit.name())) * 0.9);
+    public void addItemToCart(FruitType fruit, int kilosQuantity) {
+        if (kilosQuantity >= 5) {
+            fruitMap.put(fruit, kilosQuantity * catalog.getPriceOf(FruitType.valueOf(fruit.name())) * 0.9);
         } else {
-            fruitMap.put(fruit, kilos * catalog.getPriceOf(FruitType.valueOf(fruit.name())));
+            fruitMap.put(fruit, kilosQuantity * catalog.getPriceOf(FruitType.valueOf(fruit.name())));
         }
     }
 

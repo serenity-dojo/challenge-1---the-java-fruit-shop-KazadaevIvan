@@ -4,16 +4,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class Catalog {
-    private FruitType fruit;
-    private final Map<FruitType, Double> fruitMap = new HashMap<FruitType, Double>() {{
-        put(FruitType.APPLE, 4.00);
-        put(FruitType.ORANGE, 5.50);
-        put(FruitType.PEER, 4.50);
-        put(FruitType.BANANA, 6.00);
-    }};
-
-    public Catalog() {
-    }
+    private final Map<FruitType, Double> fruitMap = new HashMap<>();
 
     public double getPriceOf(FruitType fruit) {
         try {
@@ -23,13 +14,8 @@ public class Catalog {
         }
     }
 
-    public Catalog setPriceOf(FruitType fruit) {
-        this.fruit = fruit;
-        return this;
-    }
-
-    public void to(double price) {
-        fruitMap.put(this.fruit, price);
+    public CatalogBuilder setPriceOf(FruitType fruit) {
+        return new CatalogBuilder(fruit);
     }
 
     public List<String> getAllFruitsNames() {
@@ -38,5 +24,22 @@ public class Catalog {
                 .map(fruit -> fruit.name().toLowerCase())
                 .sorted()
                 .collect(Collectors.toList());
+    }
+
+    public void addToCatalog(FruitType fruit, double price) {
+        fruitMap.put(fruit,price);
+    }
+
+    public class CatalogBuilder {
+        private FruitType fruit;
+
+        public CatalogBuilder(FruitType fruit) {
+            this.fruit = fruit;
+        }
+
+        public CatalogBuilder to (double price) {
+            addToCatalog(fruit, price);
+            return this;
+        }
     }
 }

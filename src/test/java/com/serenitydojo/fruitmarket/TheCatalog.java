@@ -18,9 +18,9 @@ public class TheCatalog {
     }
 
     @Test
-    public void shouldReportThePriceOfAGivenTypeOfFruit() {
+    public void shouldBeAbleToKeepCatalogEmpty() {
         Catalog catalog = new Catalog();
-        assertThat(catalog.getPriceOf(FruitType.APPLE)).isEqualTo(4.00);
+        assertThat(catalog.getAllFruitsNames().size()).isEqualTo(0);
     }
 
     @Test
@@ -69,8 +69,8 @@ public class TheCatalog {
         catalog.setPriceOf(FruitType.PEER).to(2.00);
 
         ShoppingCart shoppingCart = new ShoppingCart(catalog);
-        shoppingCart.addItemToCart(FruitType.APPLE);
-        shoppingCart.addItemToCart(FruitType.ORANGE);
+        shoppingCart.addItemToCart(FruitType.APPLE, 1);
+        shoppingCart.addItemToCart(FruitType.ORANGE, 1);
 
         assertThat(shoppingCart.getTotal()).isEqualTo(9.00);
     }
@@ -97,7 +97,7 @@ public class TheCatalog {
         catalog.setPriceOf(FruitType.PEER).to(2.00);
 
         ShoppingCart shoppingCart = new ShoppingCart(catalog);
-        shoppingCart.addItemToCart(FruitType.APPLE);
+        shoppingCart.addItemToCart(FruitType.APPLE, 1);
         shoppingCart.addItemToCart(FruitType.ORANGE, 6);
 
         assertThat(shoppingCart.getTotal()).isEqualTo(31);
@@ -111,7 +111,7 @@ public class TheCatalog {
         catalog.setPriceOf(FruitType.PEER).to(2.00);
 
         ShoppingCart shoppingCart = new ShoppingCart(catalog);
-        shoppingCart.addItemToCart(FruitType.APPLE);
+        shoppingCart.addItemToCart(FruitType.APPLE, 1);
         shoppingCart.addItemToCart(FruitType.ORANGE, 5);
 
         assertThat(shoppingCart.getTotal()).isEqualTo(26.5);
@@ -125,7 +125,7 @@ public class TheCatalog {
         catalog.setPriceOf(FruitType.PEER).to(2.00);
 
         ShoppingCart shoppingCart = new ShoppingCart(catalog);
-        shoppingCart.addItemToCart(FruitType.APPLE);
+        shoppingCart.addItemToCart(FruitType.APPLE, 1);
         shoppingCart.addItemToCart(FruitType.ORANGE, 4);
 
         assertThat(shoppingCart.getTotal()).isEqualTo(24);
